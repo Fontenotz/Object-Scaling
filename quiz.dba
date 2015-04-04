@@ -1,0 +1,22 @@
+sync on
+sync rate 50
+
+make object cone 1,10
+scale object 1,25,25,25
+
+x=30
+y=0
+z=0
+w=5
+
+repeat
+sync
+position object 1,x+rnd(6),y+rnd(6),z
+scale object 1,rnd(35),rnd(35),rnd(35)
+
+if z<-100 then w=5 : x=x*-1
+if z>3000 then w=-5 : x=x*-1
+
+z=z+w
+
+until spacekey()=1
